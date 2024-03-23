@@ -7,11 +7,17 @@
 
 ## Create Virtual Environment
 
+Open terminal (or CMD) inside the project (where app.py exists) and run following commands
+
 ```bash
-  python -m venv venv
-  # Activate
-  .\venv\Scripts\activate.bat
+python -m venv venv
 ```
+
+```bash
+# Activate
+.\venv\Scripts\activate.bat
+```
+
 ## Install Requirements
 
 ```bash
