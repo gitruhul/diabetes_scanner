@@ -23,7 +23,7 @@ app.secret_key = "your_secret_key"
 
 # Configure SQLAlchemy for MySQL
 app.config["SQLALCHEMY_DATABASE_URI"] = (
-    "mysql://retinopathy:password@localhost:3306/retinopathy2"
+    "mysql://devuser:Pazz45@localhost:3306/retinopathy"
 )
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)

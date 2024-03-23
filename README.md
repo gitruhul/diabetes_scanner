@@ -3,6 +3,7 @@
 ## Prerequisites
 
 - Python 3+
+- MySql Database
 
 ## Create Virtual Environment
 
