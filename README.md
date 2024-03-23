@@ -17,6 +17,9 @@
 ```bash
   pip install -r .\requirments.txt
 ```
+## Configure Properties
+
+Open the file `config.properties` and configure all the required values.
 
 ## Run the app
 

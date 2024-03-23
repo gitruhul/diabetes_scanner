@@ -1,3 +1,4 @@
+from configparser import ConfigParser
 import os
 import cv2
 import tensorflow as tf
@@ -19,13 +20,24 @@ from flask_sqlalchemy import SQLAlchemy
 
 # Initialize Flask app
 app = Flask(__name__)
-app.secret_key = "your_secret_key"
+
+
+# Load configuration from properties file
+def load_app_config():
+    config = ConfigParser()
+    config.read("config.properties")
+    return config["App"]
+
+
+configuration = load_app_config()
+
+app.secret_key = configuration.get("SECRET_KEY")
 
 # Configure SQLAlchemy for MySQL
-app.config["SQLALCHEMY_DATABASE_URI"] = (
-    "mysql://devuser:Pazz45@localhost:3306/retinopathy"
+app.config["SQLALCHEMY_DATABASE_URI"] = configuration.get("SQLALCHEMY_DATABASE_URI")
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = configuration.getboolean(
+    "SQLALCHEMY_TRACK_MODIFICATIONS"
 )
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 
 # Initialize Flask-Login
@@ -187,4 +199,4 @@ def register():
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
-    app.run(debug=True)
+    app.run(debug=configuration.getboolean("DEBUG"), port=configuration.getint("PORT"))
