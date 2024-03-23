@@ -53,7 +53,7 @@ class UploadForm(FlaskForm):
 
 
 # Load the pre-trained model
-model_path = r"C:\Users\asus\Desktop\ret\model2.h5"
+model_path = r"./model/model2.h5"
 model = tf.keras.models.load_model(model_path, compile=False)
 
 

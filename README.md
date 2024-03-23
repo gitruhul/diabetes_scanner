@@ -16,3 +16,10 @@
 ```bash
   pip install -r .\requirments.txt
 ```
+
+## Run the app
+
+```bash
+  python .\app.py
+```
+
