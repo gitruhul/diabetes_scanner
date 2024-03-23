@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Upload Image</title>
-</head>
-<body>
-    <h1>Upload Image</h1>
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            {% for message in messages %}
-                <div class="{{ message[1] }}">{{ message[0] }}</div>
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
-    <form method="post" enctype="multipart/form-data">
+    <!-- Add Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center mt-5">Upload Image</h1>
+      {% with messages = get_flashed_messages() %} {% if messages %} {% for
+      message in messages %}
+      <div class="alert alert-info">{{ message[0] }}</div>
+      {% endfor %} {% endif %} {% endwith %}
+      <form method="post" enctype="multipart/form-data" class="mt-4">
         {{ form.hidden_tag() }}
-        {{ form.image.label }}{{ form.image() }}<br><br>
-        {{ form.submit() }}
-    </form>
-</body>
+        <div class="form-group">
+          {{ form.image.label }}{{ form.image(class="form-control-file") }}
+        </div>
+        {{ form.submit(class="btn btn-primary") }}
+      </form>
+    </div>
+  </body>
 </html>

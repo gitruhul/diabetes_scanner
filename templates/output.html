@@ -1,27 +1,21 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Analysis Result</title>
-</head>
-<body>
-    <h1>Image Analysis Result</h1>
-    <div>Result: {{ result }}</div>
-    <!-- <a href="{{ url_for('upload') }}">Upload Another Image</a> -->
-<!-- </body>
-</html> --> -->
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Image Analysis Result</title>
-</head>
-<body>
-    <h1>Image Analysis Result</h1>
-    <p>Result: {{ result }}</p>
-    <p>Class Label: {{ class_label }}</p> <!-- Display the class label -->
-</body>
+    <!-- Add Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center mt-5">Image Analysis Result</h1>
+      <p class="text-center mt-3">Result: {{ result }}</p>
+      <p class="text-center">Class Label: {{ class_label }}</p>
+      <!-- Display the class label -->
+    </div>
+  </body>
 </html>
